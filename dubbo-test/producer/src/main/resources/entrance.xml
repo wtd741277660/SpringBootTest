@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns="http://www.springframework.org/schema/beans"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context-4.0.xsd"
+       default-autowire="byType">
+
+    <!--下面dubbo和hsf的配置文件不能同时启用，根据实际需求启用对应的配置文件-->
+
+    <!--如果启用该xml文件，则启用dubbo接口配置-->
+    <import resource="dubbo-producer.xml" />
+
+    <!--如果启用该xml文件，则启用hsf接口配置-->
+<!--    <import resource="hsf-provider.xml" />-->
+</beans>

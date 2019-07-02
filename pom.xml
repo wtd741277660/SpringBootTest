@@ -13,10 +13,16 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<name>SpringBootTest</name>
 	<description>Demo project for Spring Boot</description>
+	<packaging>pom</packaging>
 
 	<properties>
 		<java.version>1.8</java.version>
 	</properties>
+
+	<modules>
+		<module>dubbo-test</module>
+        <module>leetcode</module>
+    </modules>
 
 	<dependencies>
 		<dependency>
@@ -33,6 +39,18 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
+<!--			<exclusions>-->
+<!--				<exclusion>-->
+<!--					<groupId>org.springframework.boot</groupId>-->
+<!--					<artifactId>spring-boot-starter-tomcat</artifactId>-->
+<!--				</exclusion>-->
+<!--			</exclusions>-->
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-tomcat</artifactId>
+			<scope>provided</scope>
 		</dependency>
 
 		<dependency>
