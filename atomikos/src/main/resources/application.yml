@@ -1,0 +1,53 @@
+#配置两个数据库，用于测试分布式事务
+spring:
+  jta:
+    atomikos:
+      datasource:
+        sys: #sys表数据库配置
+          max-pool-size: 25
+          min-pool-size: 3
+          max-lifetime: 20000
+          borrow-connection-timeout: 10000
+          unique-resource-name: spring
+          xa-properties:
+            url: jdbc:mysql://127.0.0.1:3306/sys?useUnicode=true&characterEncoding=UTF-8&useSSL=true&serverTimezone=UTC
+            username: root
+            password: 123456
+            driverClassName: com.mysql.jdbc.Driver
+            initialSize: 10 # 初始化大小，最小，最大
+            minIdle: 20
+            maxActive: 100
+            maxWait: 60000 # 配置获取连接等待超时的时间
+            timeBetweenEvictionRunsMillis: 60000 # 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒
+            minEvictableIdleTimeMillis: 300000 # 配置一个连接在池中最小生存的时间，单位是毫秒
+            testWhileIdle: true
+            testOnBorrow: false
+            testOnReturn: false
+            poolPreparedStatements: true # 打开PSCache，并且指定每个连接上PSCache的大小
+            maxPoolPreparedStatementPerConnectionSize: 20
+            filters: stat,slf4j,wall # 配置监控统计拦截的filters，去掉后监控界面sql无法统计，'wall'用于防火墙
+          xa-data-source-class-name: com.alibaba.druid.pool.xa.DruidXADataSource
+        test: #test表数据库配置
+          max-pool-size: 25
+          min-pool-size: 3
+          max-lifetime: 20000
+          borrow-connection-timeout: 10000
+          unique-resource-name: spring
+          xa-properties:
+            url: jdbc:mysql://127.0.0.1:3306/test?useUnicode=true&characterEncoding=UTF-8&useSSL=true&serverTimezone=UTC
+            username: root
+            password: 123456
+            driverClassName: com.mysql.jdbc.Driver
+            initialSize: 10 # 初始化大小，最小，最大
+            minIdle: 20
+            maxActive: 100
+            maxWait: 60000 # 配置获取连接等待超时的时间
+            timeBetweenEvictionRunsMillis: 60000 # 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒
+            minEvictableIdleTimeMillis: 300000 # 配置一个连接在池中最小生存的时间，单位是毫秒
+            testWhileIdle: true
+            testOnBorrow: false
+            testOnReturn: false
+            poolPreparedStatements: true # 打开PSCache，并且指定每个连接上PSCache的大小
+            maxPoolPreparedStatementPerConnectionSize: 20
+            filters: stat,slf4j,wall # 配置监控统计拦截的filters，去掉后监控界面sql无法统计，'wall'用于防火墙
+          xa-data-source-class-name: com.alibaba.druid.pool.xa.DruidXADataSource
