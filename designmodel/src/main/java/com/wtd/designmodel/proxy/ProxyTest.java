@@ -1,4 +1,4 @@
-package com.springboot.test.SpringBootTest;
+package com.wtd.designmodel.proxy;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationHandler;
