@@ -2,12 +2,11 @@ package com.test.atomikos.config;
 
 import com.alibaba.druid.support.http.StatViewServlet;
 import com.alibaba.druid.support.http.WebStatFilter;
-import lombok.extern.log4j.Log4j;
+import com.atomikos.jdbc.AtomikosDataSourceBean;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
-import org.springframework.boot.jta.atomikos.AtomikosDataSourceBean;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.context.annotation.Bean;
@@ -16,22 +15,31 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import javax.sql.DataSource;
 
+/**
+ * Mybatis configuration
+ * <p/>
+ * Created in 2018.12.03
+ * <p/>
+ *
+ * @author Liaozihong
+ */
 @Configuration
 @EnableConfigurationProperties
 @EnableTransactionManagement(proxyTargetClass = true)
-@Log4j
-public class DataSourceConfig {
-
-    private static final Logger logger = LoggerFactory.getLogger(DataSourceConfig.class);
-
+public class MybatisConfiguration {
     /**
      * spring数据库配置前缀.
      */
-    final static String SYS_PREFIX = "spring.jta.atomikos.datasource.sys";
+    final static String SPRING_PREFIX = "spring.jta.atomikos.datasource.spring";
     /**
      * test数据库配置前缀.
      */
     final static String TEST_PREFIX = "spring.jta.atomikos.datasource.test";
+
+    /**
+     * The constant logger.
+     */
+    final static Logger logger = LoggerFactory.getLogger(MybatisConfiguration.class);
 
     /**
      * 配置druid显示监控统计信息
@@ -76,7 +84,7 @@ public class DataSourceConfig {
      * @return the data source
      */
     @Bean(name = "SpringDataSource")
-    @ConfigurationProperties(prefix = SYS_PREFIX)  // application.properties中对应属性的前缀
+    @ConfigurationProperties(prefix = SPRING_PREFIX)  // application.properties中对应属性的前缀
     public DataSource springDataSource() {
         return new AtomikosDataSourceBean();
     }

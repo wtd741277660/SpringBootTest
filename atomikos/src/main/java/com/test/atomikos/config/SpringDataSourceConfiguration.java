@@ -12,10 +12,18 @@ import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 
 import javax.sql.DataSource;
 
+/**
+ * Spring data source configuration
+ * <p/>
+ * Created in 2018.12.03
+ * <p/>
+ * 注意basePackages 指定扫描Mapper的包路径，sqlSessionFactoryRef 指定sql session工厂，跟下面的方法名相等
+ *
+ * @author Liaozihong
+ */
 @Configuration
-@MapperScan(basePackages = {"com.dashuai.learning.jta.mapper.spring"}, sqlSessionFactoryRef = "springSqlSessionFactory")
-public class SessionFactoryConfig {
-
+@MapperScan(basePackages = {"com.test.atomikos.mapper.spring"}, sqlSessionFactoryRef = "springSqlSessionFactory")
+public class SpringDataSourceConfiguration {
     /**
      * The constant MAPPER_XML_LOCATION.
      */
