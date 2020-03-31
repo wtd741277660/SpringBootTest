@@ -1,4 +1,4 @@
-package com.springboot.test.SpringBootTest;
+package com.wtd.designmodel.proxy;
 
 import net.sf.cglib.proxy.Enhancer;
 import net.sf.cglib.proxy.InvocationHandler;

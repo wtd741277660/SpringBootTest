@@ -1,4 +1,4 @@
-package com.springboot.test.SpringBootTest;
+package com.wtd.designmodel.proxy;
 
 /**
  * 静态代理的代理类，接受委托类的代理

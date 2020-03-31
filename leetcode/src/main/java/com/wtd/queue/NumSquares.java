@@ -11,9 +11,9 @@ public class NumSquares {
 
     public static void main(String[] args) {
         Date date1 = new Date();
-        int num = new NumSquares().numSquares(7168);
-        System.out.println(new Date().getTime() - date1.getTime());
-        System.out.println(num);
+        int num = new NumSquares().numSquares(10);
+//        System.out.println(new Date().getTime() - date1.getTime());
+//        System.out.println(num);
 //        System.out.println(Math.ceil(Math.sqrt(12)));
 //        System.out.println(Math.pow(4,2));
     }
