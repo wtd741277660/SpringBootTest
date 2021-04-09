@@ -20,10 +20,10 @@
 	</properties>
 
 	<modules>
-		<module>dubbo-test</module>
         <module>leetcode</module>
 		<module>atomikos</module>
-    </modules>
+		<module>gephi</module>
+	</modules>
 
 	<dependencies>
 		<dependency>
